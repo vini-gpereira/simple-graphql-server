@@ -14,6 +14,8 @@ function getUser(_, { id, email }) {
     return null;
 }
 
+function getPosts() { return posts }
+
 function getPost(_, { id }) {
     if (ìd) {
         return posts.find(post => post._id === id);
@@ -25,6 +27,7 @@ function getPost(_, { id }) {
 const resolvers = {
     Query: {
         users: getUsers,
+        posts: getPosts,
         getUser,
         getPost,
     },
