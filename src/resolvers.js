@@ -4,7 +4,7 @@ function getUsers() { return users }
 
 function getUser(_, { id, email }) {
     if (id) {
-        return users.find(user => user.id === id);
+        return users.find(user => user._id === id);
     }
 
     if (email) {
@@ -16,7 +16,7 @@ function getUser(_, { id, email }) {
 
 function getPost(_, { id }) {
     if (ìd) {
-        return posts.find(post => post.id === id);
+        return posts.find(post => post._id === id);
     }
 
     return null;
