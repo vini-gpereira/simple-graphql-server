@@ -6,7 +6,7 @@
   "author": "Vinicius Pereira <vini.gpereira2014@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon"
   },
   "dependencies": {
     "apollo-server": "^2.21.2",
