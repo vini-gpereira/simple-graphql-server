@@ -17,11 +17,33 @@ function getUser(_, { id, email }) {
 function getPosts() { return posts }
 
 function getPost(_, { id }) {
-    if (ìd) {
+    if (id) {
         return posts.find(post => post._id === id);
     }
 
     return null;
+}
+
+function createUser(_, { name, email }) {
+    const newUser = {
+        _id: String(users.length),
+        posts: [],
+        name,
+        email,
+    }
+    users.push(newUser);
+    return newUser;
+}
+
+function createPost(_, { title, content, authorId }) {
+    const newPost = {
+        _id: String(posts.length),
+        author: authorId,
+        title,
+        content,
+    }
+    posts.push(newPost);
+    return newPost
 }
 
 const resolvers = {
@@ -30,6 +52,10 @@ const resolvers = {
         posts: getPosts,
         getUser,
         getPost,
+    },
+    Mutation: {
+        createUser,
+        createPost,
     },
     User: {
         posts(user) {

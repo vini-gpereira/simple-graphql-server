@@ -5,7 +5,12 @@ const typeDefs = gql`
         users: [User!]!
         posts: [Post!]!
         getUser(id: ID, email: String): User
-        getPost(id: ID): Post
+        getPost(id: ID!): Post
+    }
+
+    type Mutation {
+        createUser(name: String!, email: String!): User!
+        createPost(title: String!, content: String!, authorId: ID!): Post!
     }
 
     type User {
