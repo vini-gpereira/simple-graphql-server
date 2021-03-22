@@ -28,6 +28,16 @@ const resolvers = {
         getUser,
         getPost,
     },
+    User: {
+        posts(user) {
+            return user.posts.map(userPost => posts.find(post => userPost === post._id));
+        },
+    },
+    Post: {
+        author(post) {
+            return users.find(user => user._id === post.author);
+        }
+    }
 };
 
 module.exports = {

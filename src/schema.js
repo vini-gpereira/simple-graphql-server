@@ -11,6 +11,7 @@ const typeDefs = gql`
         _id: ID!
         name: String!
         email: String!
+        posts: [Post!]
     }
 
     type Post {
